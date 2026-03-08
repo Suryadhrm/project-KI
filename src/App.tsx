@@ -100,6 +100,14 @@ export default function App() {
         user={user}
         onLoginClick={() => setIsAuthOpen(true)}
         onLogout={handleLogout}
+        onHomeClick={() => setSelectedMerchant(null)}
+        searchQuery={searchQuery}
+        onSearchChange={(query) => {
+          setSearchQuery(query);
+          if (selectedMerchant) {
+            setSelectedMerchant(null);
+          }
+        }}
       />
 
       {(currentRole === 'CUSTOMER' || currentRole === 'ADMIN') ? (
@@ -270,9 +278,17 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <div className="bg-emerald-600 p-2 rounded-lg">
-                  <ShoppingCart className="text-white w-5 h-5" />
-                </div>
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="18" r="18" fill="url(#grad_logo_footer)" />
+                  <path d="M10.5 10V14.5C10.5 16 11.5 17 12.5 17V25H14.5V17C15.5 17 16.5 16 16.5 14.5V10H15.3V14H14.1V10H12.9V14H11.7V10H10.5Z" fill="white" />
+                  <path d="M22.5 10C20.8 10 19.5 11.8 19.5 14C19.5 15.8 20.4 17.3 21.5 17.8V25H23.5V17.8C24.6 17.3 25.5 15.8 25.5 14C25.5 11.8 24.2 10 22.5 10Z" fill="white" />
+                  <defs>
+                    <linearGradient id="grad_logo_footer" x1="4" y1="4" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#6EE7B7" />
+                      <stop offset="1" stopColor="#047857" />
+                    </linearGradient>
+                  </defs>
+                </svg>
                 <span className="font-display font-bold text-xl text-emerald-700">
                   IPB Food
                 </span>
