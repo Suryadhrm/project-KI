@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+}
+
+.btn-primary {
+  @apply bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl transition-all font-medium flex items-center justify-center gap-2;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 px-4 py-2 rounded-xl transition-all font-medium flex items-center justify-center gap-2;
+}
+
+@keyframes bounce-in {
+  0% { transform: translate(-50%, 100%) scale(0.9); opacity: 0; }
+  70% { transform: translate(-50%, -10px) scale(1.05); opacity: 1; }
+  100% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "IPB Food & UMKM",
+  "description": "Platform pesan antar makanan dan produk UMKM khusus komunitas IPB University.",
+  "requestFramePermissions": ["geolocation"]
+}
